@@ -1,0 +1,39 @@
+# Root-level ignores (applicable to all projects)
+.DS_Store
+.env
+*.log
+*.temp
+
+# macOS-specific files
+.AppleDouble
+.LSOverride
+
+# Visual Studio Code settings
+.vscode/
+.vscode/*
+AzureAnalytics/.vscode/*
+
+# Backend (AzureAnalytics) specific ignores
+AzureAnalytics/bin/
+AzureAnalytics/obj/
+AzureAnalytics/out/
+AzureAnalytics/.vs/
+AzureAnalytics/Debug/
+AzureAnalytics/Release/
+
+# Rider/JetBrains IDE
+AzureAnalytics/.idea/
+AzureAnalytics/*.DotSettings.user
+
+# Frontend specific ignores
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.cache/
+Frontend/build/
+
+# Logs
+Frontend/npm-debug.log*
+Frontend/yarn-debug.log*
+Frontend/yarn-error.log*
+Frontend/pnpm-debug.log*
+.editorconfig
