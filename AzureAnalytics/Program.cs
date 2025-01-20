@@ -12,6 +12,7 @@ builder.Services.Configure<AzureDevOpsConfig>(options =>
     options.PersonalAccessToken = Environment.GetEnvironmentVariable("AZURE_DEVOPS_PAT");
     options.Project = Environment.GetEnvironmentVariable("AZURE_DEVOPS_PROJECT");
 });
+builder.Services.AddHttpClient<AzureDevOpsService>();
 
 var connectionString = Environment.GetEnvironmentVariable("SQL_CONNECTION_STRING");
 
@@ -25,15 +26,25 @@ builder.Services.AddDbContext<StatisticsDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IStatisticsService, StatisticsService>();
-builder.Services.AddHttpClient<AzureDevOpsService>();
-
 builder.Services.AddTransient<AzureDevOpsService>();
 
 builder.Services.AddHostedService<StatisticsCollector>();
 
 builder.Services.AddControllers();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowDevFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+app.UseCors("AllowDevFrontend");
 
 app.MapControllers();
 

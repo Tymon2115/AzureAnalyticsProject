@@ -1,0 +1,14 @@
+#body {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 48px;
+  h2 {
+    margin: auto;
+    margin-bottom: 24px;
+  }
+
+  .chart-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

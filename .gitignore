@@ -25,15 +25,52 @@ AzureAnalytics/Release/
 AzureAnalytics/.idea/
 AzureAnalytics/*.DotSettings.user
 
-# Frontend specific ignores
-Frontend/node_modules/
-Frontend/dist/
-Frontend/.cache/
-Frontend/build/
+# Dependencies
+node_modules/
+
+# Angular build outputs
+dist/
+build/
+
+# Temporary files
+.tmp/
+
+# IDE/Editor settings
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System files
+.DS_Store
+Thumbs.db
 
 # Logs
-Frontend/npm-debug.log*
-Frontend/yarn-debug.log*
-Frontend/yarn-error.log*
-Frontend/pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+*.env
+
+# Angular configuration files generated during build
+tmp/
+.cache/
+coverage/
+
+# Compiled files
+aot/
+
+# TypeScript files
+*.tsbuildinfo
+
+# Miscellaneous
+*.log
+package-lock.json
+.yarn-integrity
+.pnp.*
 .editorconfig
+.prettierrc
